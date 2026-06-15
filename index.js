@@ -33,7 +33,7 @@ const waffenListe = [
 // 📦 Lager laden
 let lager = require('./lager.json');
 
-// 🔥 Lager immer sauber halten
+// 🔥 Lager sauber halten
 function sanitizeLager() {
     for (const key of Object.keys(lager)) {
         if (!waffenListe.includes(key)) {
@@ -124,7 +124,6 @@ client.on('interactionCreate', async interaction => {
         const waffe = interaction.fields.getTextInputValue('waffe');
         const anzahl = parseInt(interaction.fields.getTextInputValue('anzahl'));
 
-        // ❌ HARTE VALIDIERUNG
         if (!waffenListe.includes(waffe)) {
             return interaction.reply({
                 content: "❌ Diese Waffe existiert nicht im System.",
